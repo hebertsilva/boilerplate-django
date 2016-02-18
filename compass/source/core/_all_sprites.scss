@@ -1,0 +1,34 @@
+/*
+
+# Sprites
+
+`core/_all_sprites.scss`
+
+*/
+
+/*
+
+Para adicionar um sprite em um elemento use a classe `.s` e a classe `.s-{sufixo}`
+onde sufixo é o nome da imagem.
+
+## Exemplos:
+
+    <ul class="list-inline">
+        <li class="s s-logo"></li>
+        <li class="s s-icon-visa-lg"></li>
+        <li class="s s-icon-mastercard-lg"></li>
+        <li class="s s-icon-amex-lg"></li>
+        <li class="s s-icon-diners-lg"></li>
+    </ul>
+*/
+
+.#{$site-sprites-prefix} {
+    @extend %sprt;
+}
+
+
+@each $name in sprite-names($site-sprites) {
+    .#{$site-sprites-prefix}-#{$name}{
+        @include sprt-position($name);
+    }
+}

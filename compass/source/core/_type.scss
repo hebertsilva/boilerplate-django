@@ -1,0 +1,25 @@
+//
+// Typographic elements
+// --------------------------------------------------
+
+// Default Typography
+body {
+    @include font($font-default, 400);
+    color: $color-base;
+    font-size: 14px;
+}
+
+// Default strong weight
+strong, b {
+    @include font($font-default, 700);
+}
+
+// Default Links
+a {
+    color: $color-base;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($color-base, 10);
+    }
+}

@@ -1,0 +1,208 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Pseudo selectors
+// --------------------------------------------------
+
+@mixin pseudo-base() {
+    @include inline-block;
+    content: "";
+}
+
+@mixin before() {
+    &:before{
+        @include pseudo-base;
+        @content;
+    }
+}
+
+@mixin after() {
+    &:after{
+        @include pseudo-base;
+        @content;
+    }
+}
+
+// Fonts
+// --------------------------------------------------
+
+@mixin font($font-name, $font-weight) {
+    @extend %#{$font-name}-#{$font-weight};
+}
+
+@mixin make-font($font-name, $font-family-name, $font-weight, $add-weight:true) {
+    %#{$font-name}-#{$font-weight}{
+        font-family: $font-family-name;
+        @if $add-weight == true {
+            font-weight: $font-weight;
+        }
+    }
+}
+
+// Utils
+// --------------------------------------------------
+
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin retina() {
+    @if $use-retina-sprites == true {
+        @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min--moz-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+            @content;
+        }
+    }
+}
+
+@mixin no-selection() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@function em($px, $base:$font-size-base) {
+    @return ($px / $base) * 1em;
+}
+
+// Animations
+// --------------------------------------------------
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Sprites
+// -------------------------
+
+@function sprt-width($sprite, $map:$site-sprites) {
+    @return image-width(sprite-file($map, $sprite));
+}
+
+@function sprt-height($sprite, $map:$site-sprites) {
+    @return image-height(sprite-file($map, $sprite));
+}
+
+@mixin sprt-position($sprite, $map:$site-sprites) {
+    width: sprt-width($sprite);
+    height: sprt-height($sprite);
+    background-position: sprite-position($map, $sprite);
+
+    @include retina{
+        background-position: round(nth(sprite-position($site-sprites-2x, $sprite), 1) / 2) round(nth(sprite-position($site-sprites-2x, $sprite), 2) / 2);
+        height: image-height(sprite-file($site-sprites-2x, $sprite)) / 2;
+        width: image-width(sprite-file($site-sprites-2x, $sprite)) / 2;
+    }
+}
+
+@mixin sprt($sprite) {
+    @extend %sprt;
+    @include sprt-position($sprite);
+}
+
+// Arrows
+// --------------------------------------------------
+
+@mixin arrow_helper($arrowSize, $arrowColor, $margin, $side, $align) {
+    @if $side == "top" {
+        border-bottom-color: $arrowColor;
+        top: -2 * $arrowSize;
+    }
+    @if $side == "bottom" {
+        border-top-color: $arrowColor;
+        bottom: -2 * $arrowSize;
+    }
+    @if $side == "left" {
+        border-right-color: $arrowColor;
+        left: -2 * $arrowSize;
+    }
+    @if $side == "right" {
+        border-left-color: $arrowColor;
+        right: -2 * $arrowSize;
+    }
+
+    @if $side == "right" or $side == "left" {
+        @if $align == "center" {
+            top: 50%;
+            margin-top: -$arrowSize;
+        }
+        @else if $align == "top" {
+            top: $margin;
+        }
+        @else if $align == "bottom" {
+        bottom: $margin;
+        }
+    }
+
+    @if $side == "bottom" or $side == "top" {
+        @if $align == "center" {
+            right: 50%;
+            margin-right: -$arrowSize;
+        }
+        @else if $align == "left" {
+            left: $margin;
+        }
+        @else if $align == "right" {
+            right: $margin;
+        }
+    }
+}
+
+@mixin arrow($side: "right", $align: "center", $size: 20px, $color: #f6f6f6, $borderColor: "none", $borderSize: 3px) {
+    $selector: "&:after, &:before";
+    @if $borderColor == "none" {
+        $selector: "&:after";
+    }
+    #{$selector} {
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        visibility: visible;
+    }
+
+    &:after {
+        border-width: $size;
+        @include arrow_helper($size, $color, $size, $side, $align);
+    }
+
+    @if $borderColor != "none" {
+        &:before {
+        border-width: $borderSize + $size;
+        @include arrow_helper($size + $borderSize, $borderColor, $size - $borderSize, $side, $align);
+        }
+    }
+}
+
+@mixin generate_padding_margins() {
+    @each $rule in padding, margin {
+        $rule-prefix: str-slice($rule, 0, 1);
+        @each $direction in "", -top, -right, -bottom, -left {
+            $direction-prefix: str-slice($direction, 0, 2);
+            @each $size-name, $size in $padding-margin-sizes {
+                $class-name: $rule-prefix + $direction-prefix + $size-name;
+                $rule-name: $rule + $direction;
+                .#{$class-name} {
+                    #{$rule-name}: $size;
+                }
+            }
+        }
+    }
+}

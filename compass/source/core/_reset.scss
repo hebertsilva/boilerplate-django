@@ -1,0 +1,24 @@
+@import "compass/reset";
+
+//
+// Extra reset
+// --------------------------------------------------
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+html {
+  @include box-sizing(border-box);
+}
+
+*, *:before, *:after {
+    @include box-sizing(inherit);
+}

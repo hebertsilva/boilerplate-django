@@ -1,0 +1,43 @@
+@import "vendor/fontello/fontello-codes";
+
+/*
+
+# Ícones
+
+`core/_icons.scss`
+
+*/
+
+/*
+
+Para geração de ícones é utilizado o serviço [http://fontello.com](http://fontello.com). Para adicionar um icone em um elemento basta adicionar a classe `.ficon-name` onde `name` é o nome do ícone.
+
+Alguns exemplos de ícones:
+
+    <a href="#" class="btn"><span class="ficon-search"></span></a>
+    <a href="#" class="btn"><span class="ficon-basket"></span></a>
+    <a href="#" class="btn"><span class="ficon-lock"></span></a>
+    <a href="#" class="btn"><span class="ficon-truck"></span></a>
+    <a href="#" class="btn"><span class="ficon-menu"></span></a>
+    <a href="#" class="btn"><span class="ficon-instagramm"></span></a>
+    <a href="#" class="btn"><span class="ficon-pinterest-circled"></span></a>
+    <a href="#" class="btn"><span class="ficon-twitter"></span></a>
+    <a href="#" class="btn"><span class="ficon-tag"></span></a>
+    <a href="#" class="btn"><span class="ficon-cancel"></span></a>
+    <a href="#" class="btn"><span class="ficon-gift"></span></a>
+    <a href="#" class="btn"><span class="ficon-googleplus"></span></a>
+    <a href="#" class="btn"><span class="ficon-facebook"></span></a>
+*/
+
+/*
+
+## Como adicionar mais ícones?
+
+* Visite o serviço [http://fontello.com](http://fontello.com)
+* Importe o arquivo `config.json` localizado em `django/static/font/fontello/config.json`
+* Selecione os icones que deseja
+* Faça download do pacote
+* Substítua o arquivo `config.json` do projeto pelo baixado no pacote.
+* Execute o comando `grunt fontello` no terminal
+
+*/

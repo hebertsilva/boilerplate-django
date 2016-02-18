@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load compress %}
+
+{% block title %}{{ block.super }}{% endblock %}
+
+{% block extra_css %}
+{% compress css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/views/home.css">
+{% endcompress %}
+{% endblock %}
+
+
+{% block body_attrs %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1><span class="glyphicon glyphicon-asterisk"></span> Bootstrap example: </h1>  
+    <div class="row">
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">.col-md-8</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6">.col-md-6</div>
+    </div>
+</div>
+{% endblock content %}

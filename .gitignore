@@ -1,0 +1,67 @@
+syntax: glob
+
+# system files
+*~
+*\#
+*.bak
+*.pyc
+*.swp
+*.tmproj
+._*
+.\#*
+*.log
+.dir-locals.el
+.DS_Store
+*.egg-info/
+dogslow
+dogslow/*
+django/static/CACHE/*
+free_trial_log.txt
+pip-log.txt
+pyboleto_log.txt
+whoosh_index
+
+# etc files
+*.livereload
+*.orig
+*.zip
+etc/*
+etc/html/*
+etc/layout/*
+etc/materiais/*
+
+# db files - ex: sqlite
+*.db
+# redis files
+*.rdb
+
+# project files
+compiled/*.js
+css/compiled_*.css
+django/.ponyrc
+django/app/static/*
+django/app/media/*
+django/media/*
+local_settings.py
+settings/dev.py
+
+# sublime text 2 - projects files
+*.sublime-*
+
+# sphynx
+docs/_build/*
+dist/
+
+# SASS / CSS
+.sass-cache
+html/static/css
+django/static/css
+common/sprite-*
+.bundle
+Gemfile.lock
+
+# nodejs
+node_modules
+
+# styleguide
+styleguide/html

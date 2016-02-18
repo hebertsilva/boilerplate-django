@@ -1,0 +1,102 @@
+{% load compress %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+
+        <!--[if IE]>
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=100" />
+        <![endif]-->
+
+        <meta name="viewport" content="width=1024, maximum-scale=1.0" />
+        <meta name="author" content="">
+
+        <meta name="description" content='{% block meta_description %}Lorem ipsum dolor sit amet{% endblock meta_description %}' />
+
+        {# TODO: Habilitar robots quando em produção, usar "index, follow" #}
+        <meta name="robots" content="noindex, nofollow">
+
+        {% block extra_meta %}
+        {# TODO: Adicionar os dados para as metas para o facebook #}
+        <meta property="og:title" content="{{ SITE_NAME }}" />
+        <meta property="og:type" content="company" />
+        <meta property="og:url" content="{{ SITE_URL }}" />
+        <meta property="og:image" content="{{ STATIC_URL }}img/common/logo_fb200x200.png" />
+        <meta property="og:description" content="Lorem ipsum dolor sit amet.">
+        <meta property="og:site_name" content="{{ SITE_NAME }}"/>
+        {% endblock extra_meta %}
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/favicon.ico">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/favicon.png">
+        <link rel="apple-touch-icon" href="{{ STATIC_URL }}img/favicon/apple-touch-icon.png">
+        <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}img/favicon/apple-touch-icon-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}img/favicon/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}img/favicon/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ STATIC_URL }}img/favicon/apple-touch-icon-120x120-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}img/favicon/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileImage" content="{{ STATIC_URL }}img/favicon/windows-tile-144x144.png">
+        <meta name="msapplication-TileColor" content="#eeeeeeee">
+
+        <!-- web fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/vendor/fonts.css">
+
+        {% compress css %}
+        <!-- vendor css -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/vendor/oldbrowsers.css">
+
+        <!-- common css -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/views/base.css">
+
+        <!-- views css -->
+        {% endcompress %}
+
+        {% block extra_css %}{% endblock %}
+
+        <script src="{{ STATIC_URL }}js/libs/modernizr.min.js"></script>
+    </head>
+
+    <body id="{% block body_id %}default{% endblock %}" {% block body_attrs %}{% endblock %}>
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- common scripts -->
+        <!-- globals -->
+        <script>
+            window.__STATIC_URL__ = "{{ STATIC_URL }}";
+            window.__MEDIA_URL__ = "{{ MEDIA_URL }}";
+        </script>
+        {% compress js %}
+        <!-- libs -->
+        <script src="{{ STATIC_URL }}js/libs/Base.js"></script>
+        <script src="{{ STATIC_URL }}js/libs/oldbrowsers.js"></script>
+        <script src="{{ STATIC_URL }}js/libs/jquery.js"></script>
+        <script src="{{ STATIC_URL }}js/libs/jquery-migrate.min.js"></script>
+        <script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
+
+        <!-- common plugins -->
+        <script src="{{ STATIC_URL }}js/libs/jquery.mask.js"></script>
+
+        <!-- app core components -->
+        <script src="{{ STATIC_URL }}js/app/core/app.js"></script>
+        <script src="{{ STATIC_URL }}js/app/core/console.js"></script>
+        <script src="{{ STATIC_URL }}js/app/core/utils.js"></script>
+
+        <!-- app base view -->
+        <script src="{{ STATIC_URL }}js/app/views/BaseView.js"></script>
+        {% endcompress %}
+
+        <!-- page specific plugins or views -->
+        {% block extra_js %}{% endblock %}
+
+        <!-- async javascripts -->
+    </body>
+</html>

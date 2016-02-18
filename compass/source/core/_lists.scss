@@ -1,0 +1,82 @@
+/*
+
+# Listas
+
+`core/_lists.scss`
+
+*/
+
+/*
+
+## Float
+
+    <ul class="list-float">
+        <li><a class="btn" href="#">item 1</a></li>
+        <li><a class="btn" href="#">item 2</a></li>
+        <li><a class="btn" href="#">item 3</a></li>
+    </ul>
+*/
+.list-float {
+    @include pie-clearfix;
+
+    & > * {
+        float: left;
+    }
+}
+
+/*
+## Inline
+
+    <ul class="list-inline">
+        <li><a class="btn" href="#">item 1</a></li>
+        <li><a class="btn" href="#">item 2</a></li>
+        <li><a class="btn" href="#">item 3</a></li>
+    </ul>
+*/
+
+.list-inline {
+    & > * {
+        @include inline-block;
+        vertical-align: top;
+    }
+}
+
+/*
+## Tabela
+
+    <ul class="list-table">
+        <li><a class="btn" href="#">item 1</a></li>
+        <li><a class="btn" href="#">item 2</a></li>
+        <li><a class="btn" href="#">item 3</a></li>
+    </ul>
+*/
+
+.list-table {
+    width: 100%;
+    display: table;
+
+    & > * {
+        display: table-cell;
+    }
+}
+
+/*
+## Lista comum
+
+    <ul class="list-small">
+        <li><a class="btn" href="#">item 1</a></li>
+        <li><a class="btn" href="#">item 2</a></li>
+        <li><a class="btn" href="#">item 3</a></li>
+    </ul>
+*/
+.list-small {
+    font-size: 12px;
+
+    li {
+        padding-bottom: 10px;
+    }
+
+    a {
+        color: #888888;
+    }
+}

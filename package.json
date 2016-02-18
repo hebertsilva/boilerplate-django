@@ -1,0 +1,24 @@
+{
+  "name": "django-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-imagemin": "~0.1.4",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-notify": "~0.3.0",
+    "grunt-shell": "~0.7.0",
+    "grunt-favicons": "~0.2.0",
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-fontello": "git+https://github.com/jubalm/grunt-fontello.git#a81aaec2c7aa2a81986d6c6f95cd5b8b18d9539a",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-connect-rewrite": "~0.2.1",
+    "grunt-string-replace": "~0.2.7",
+    "mime": "~1.2.11",
+    "grunt-open": "~0.2.3",
+    "sassdown": "~0.2.6"
+  }
+}

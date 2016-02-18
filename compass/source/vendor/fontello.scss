@@ -1,0 +1,30 @@
+@import "compass/css3";
+
+@include font-face("fontello",
+    font-files(
+        "fontello/fontello.eot",
+        "fontello/fontello.svg",
+        "fontello/fontello.ttf",
+        "fontello/fontello.woff"
+    )
+);
+
+[class^="ficon-"]:before, [class*=" ficon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+}
+
+.ficon-lg{
+    font-size: 20px;
+}

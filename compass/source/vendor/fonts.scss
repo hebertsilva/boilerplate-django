@@ -1,0 +1,74 @@
+//
+// Fonts Face Declarations
+// --------------------------------------------------
+
+@import "compass/css3";
+
+//
+// Example
+// --------------------------------------------------
+
+/*
+    // 1 - Common Font Files
+
+    // 1.1 - Import fonts in this file
+
+    @include font-face("proxima_nova_rgregular",
+        font-files(
+            "proxima_nova/proximanova-regular-webfont.woff", "woff",
+            "proxima_nova/proximanova-regular-webfont.ttf", "truetype",
+            "proxima_nova/proximanova-regular-webfont.svg#proxima_nova_rgregular", "svg"
+        ),
+        "proxima_nova/proximanova-regular-webfont.eot"
+    );
+
+    // 1.2 - Declare the font in core/_fonts.scss
+
+    @include make-font("casper", "casper_regular", 400);
+    @include make-font("casper", "casper_bold", 700);
+
+    // 1.3 - Use the font
+
+    .selector-1{
+        @include font("casper", 400);
+    }
+
+    .selector-2{
+        @include font("casper", 700);
+    }
+
+    // 1 - Google Fonts
+
+    // 1.1 - Import fonts in django/app/templates/base.html
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Montserrat:700,400' rel='stylesheet'>
+
+    // 1.2 - Declare the font in core/_fonts.scss
+
+    @include make-font("montserrat", "Montserrat", 400);
+    @include make-font("montserrat", "Montserrat", 700);
+
+    @include make-font("opensans", "Open Sans", 400);
+    @include make-font("opensans", "Open Sans", 600);
+    @include make-font("opensans", "Open Sans", 700);
+
+    // 1.3 - Use the font
+
+    .selector-1{
+        @include font("montserrat", 700);
+    }
+
+    .selector-2{
+        @include font("opensans", 600);
+    }
+*/
+
+
+@include font-face("fontello",
+    font-files(
+        "fontello/fontello.eot",
+        "fontello/fontello.svg",
+        "fontello/fontello.ttf",
+        "fontello/fontello.woff"
+    )
+);

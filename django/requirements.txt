@@ -1,0 +1,11 @@
+Django >= 1.7, < 1.8
+
+slimit
+
+django-compressor==1.4
+
+BeautifulSoup
+
+django-widget-tweaks==1.3
+
+django-ses

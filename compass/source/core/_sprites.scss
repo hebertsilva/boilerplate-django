@@ -1,0 +1,14 @@
+//
+// Sprites
+// --------------------------------------------------
+
+%sprt {
+    @include inline-block;
+    background-image: $site-sprites;
+    background-repeat: no-repeat;
+
+    @include retina {
+        @include background-size(ceil(image-width(sprite-path($site-sprites-2x)) / 2) auto);
+        background-image: $site-sprites-2x;
+    }
+}
