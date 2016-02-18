@@ -15,7 +15,7 @@ Siga os passos abaixo para instalação e configuração.
 Faça um clone do django-boilerplate:
 
 ```shell
-git clone git@bitbucket.org:allanbobs/repo_estudos.git
+git clone git@github.com:hebertsilva/boilerplate-django.git
 ```
 
 ### Django
