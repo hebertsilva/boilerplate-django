@@ -1,8 +1,8 @@
-![Django Boilerplate](https://bitbucket.org/allanbobs/repo_estudos/raw/master/django/static/img/common/logo_fb200x200.png)
+![Django Boilerplate](https://github.com/hebertsilva/boilerplate-django/raw/master/django/static/img/common/logo_fb200x200.png)
 
 # Django Boilerplate
 
-* Repositório - https://bitbucket.org/allanbobs/repo_estudos
+* Repositório - https://github.com/hebertsilva/boilerplate-django
 * Production - http://example.com.br
 
 ## Instalação
